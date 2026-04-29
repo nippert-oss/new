@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>자리는 정했는데, 브랜드가 고민이세요?</title>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Pretendard',-apple-system,sans-serif;
+  background:#fff;color:#111;
+  overflow-x:hidden;
+}
+
+:root{
+  --or:#E8470A;
+  --bg:#F8F7F5;
+  --border:#EBEBEB;
+  --mid:#555;
+  --light:#999;
+}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:999;
+  height:58px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 32px;
+  background:rgba(255,255,255,0.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+}
+.logo{font-size:17px;font-weight:900;letter-spacing:-0.5px}
+.logo span{color:var(--or)}
+.nav-btn{
+  background:var(--or);color:#fff;
+  padding:8px 18px;border-radius:7px;
+  font-size:13px;font-weight:700;
+  text-decoration:none;
+}
+
+/* HERO */
+.hero{
+  padding:120px 32px 80px;
+  max-width:640px;margin:0 auto;
+  text-align:center;
+}
+
+.hero-tag{
+  display:inline-block;
+  background:rgba(232,71,10,0.08);
+  color:var(--or);
+  font-size:12px;font-weight:700;
+  padding:5px 14px;border-radius:100px;
+  margin-bottom:28px;
+  letter-spacing:0.3px;
+}
+
+.hero h1{
+  font-size:clamp(30px,5vw,48px);
+  font-weight:900;
+  line-height:1.2;
+  letter-spacing:-1.5px;
+  margin-bottom:20px;
+}
+
+.hero h1 em{
+  font-style:normal;
+  color:var(--or);
+}
+
+.hero-desc{
+  font-size:16px;
+  color:var(--mid);
+  line-height:1.85;
+  margin-bottom:40px;
+  font-weight:400;
+}
+
+.hero-cta{
+  display:inline-flex;align-items:center;gap:10px;
+  background:#FEE500;color:#111;
+  padding:18px 40px;border-radius:10px;
+  font-size:17px;font-weight:800;
+  text-decoration:none;
+  transition:all .2s;
+  margin-bottom:12px;
+}
+.hero-cta:hover{background:#F5DC00;transform:translateY(-2px);box-shadow:0 8px 24px rgba(254,229,0,0.4)}
+
+.hero-note{
+  font-size:13px;color:var(--light);
+  display:block;
+}
+
+/* DIVIDER */
+.divider{
+  width:48px;height:2px;
+  background:var(--border);
+  margin:64px auto;
+}
+
+/* WHY HARD */
+.why{
+  max-width:640px;margin:0 auto;
+  padding:0 32px 64px;
+  text-align:center;
+}
+
+.why h2{
+  font-size:clamp(22px,3.5vw,32px);
+  font-weight:900;letter-spacing:-1px;
+  line-height:1.3;margin-bottom:16px;
+}
+
+.why-desc{
+  font-size:15px;color:var(--mid);
+  line-height:1.85;margin-bottom:40px;
+}
+
+.why-cards{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  text-align:left;
+}
+
+.wc{
+  background:var(--bg);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:22px 20px;
+  transition:border-color .2s;
+}
+.wc:hover{border-color:var(--or)}
+
+.wc-icon{font-size:22px;margin-bottom:10px}
+.wc-title{font-size:14px;font-weight:800;margin-bottom:6px;line-height:1.4}
+.wc-desc{font-size:12px;color:var(--mid);line-height:1.7}
+
+/* HOW */
+.how{
+  background:var(--bg);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  padding:64px 32px;
+}
+
+.how-inner{max-width:640px;margin:0 auto;text-align:center}
+
+.how h2{
+  font-size:clamp(20px,3vw,30px);
+  font-weight:900;letter-spacing:-0.8px;
+  margin-bottom:12px;
+}
+
+.how-sub{font-size:15px;color:var(--mid);margin-bottom:40px;line-height:1.7}
+
+.steps{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  text-align:left;
+}
+
+.step{
+  background:#fff;
+  border:1.5px solid var(--border);
+  border-radius:14px;
+  padding:20px 22px;
+  display:flex;
+  align-items:center;
+  gap:18px;
+  transition:border-color .2s;
+}
+.step:hover{border-color:var(--or)}
+
+.step-num{
+  width:36px;height:36px;
+  border-radius:50%;
+  background:var(--or);
+  color:#fff;
+  font-size:14px;font-weight:800;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+
+.step-title{font-size:14px;font-weight:800;margin-bottom:3px}
+.step-desc{font-size:12px;color:var(--mid);line-height:1.6}
+
+.step-arrow{
+  text-align:center;
+  color:var(--border);
+  font-size:16px;
+  margin:-4px 0;
+  padding-left:18px;
+}
+
+/* TRUST */
+.trust{
+  max-width:640px;margin:0 auto;
+  padding:64px 32px;
+  text-align:center;
+}
+
+.trust h2{
+  font-size:clamp(20px,3vw,28px);
+  font-weight:900;letter-spacing:-0.8px;
+  margin-bottom:32px;
+}
+
+.trust-cards{
+  display:flex;flex-direction:column;gap:12px;
+  text-align:left;
+}
+
+.tc{
+  border:1.5px solid var(--border);
+  border-radius:14px;padding:22px 20px;
+  transition:border-color .2s;
+}
+.tc:hover{border-color:var(--or)}
+
+.tc-q{
+  font-size:13px;font-weight:700;
+  color:var(--or);margin-bottom:8px;
+}
+.tc-a{font-size:14px;color:var(--mid);line-height:1.8}
+.tc-a strong{color:#111;font-weight:700}
+
+/* FINAL CTA */
+.final{
+  background:#111;
+  padding:80px 32px;
+  text-align:center;
+}
+
+.final h2{
+  font-size:clamp(22px,3.5vw,36px);
+  font-weight:900;letter-spacing:-1px;
+  line-height:1.3;
+  color:#fff;
+  margin-bottom:12px;
+}
+
+.final h2 em{font-style:normal;color:var(--or)}
+
+.final-sub{
+  font-size:15px;
+  color:rgba(255,255,255,0.45);
+  margin-bottom:36px;
+  line-height:1.7;
+}
+
+.final-cta{
+  display:inline-flex;align-items:center;gap:10px;
+  background:#FEE500;color:#111;
+  padding:18px 40px;border-radius:10px;
+  font-size:17px;font-weight:800;
+  text-decoration:none;
+  transition:all .2s;
+}
+.final-cta:hover{background:#F5DC00;transform:translateY(-2px)}
+
+footer{
+  padding:28px 32px;
+  font-size:12px;color:rgba(255,255,255,0.2);
+  background:#111;
+  border-top:1px solid rgba(255,255,255,0.06);
+  text-align:center;
+  line-height:1.8;
+}
+footer strong{color:rgba(255,255,255,0.4)}
+
+/* FLOAT */
+.float{
+  position:fixed;bottom:24px;right:24px;z-index:999;
+  width:50px;height:50px;background:#FEE500;
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:20px;text-decoration:none;
+  box-shadow:0 4px 16px rgba(0,0,0,0.12);
+  animation:fp 2.5s ease-in-out infinite;
+}
+@keyframes fp{
+  0%,100%{box-shadow:0 4px 16px rgba(0,0,0,0.12),0 0 0 0 rgba(254,229,0,0.5)}
+  50%{box-shadow:0 4px 16px rgba(0,0,0,0.12),0 0 0 10px rgba(254,229,0,0)}
+}
+
+/* FADE */
+.fade{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease}
+.fade.on{opacity:1;transform:none}
+
+@media(max-width:480px){
+  .why-cards{grid-template-columns:1fr}
+  nav{padding:0 20px}
+  .hero{padding:100px 20px 60px}
+  .why,.trust{padding:0 20px 56px}
+  .how{padding:56px 20px}
+  .final{padding:64px 20px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">체<span>인</span>지</div>
+  <a href="https://open.kakao.com/o/syDEmKni" target="_blank" class="nav-btn">상담하기</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">프랜차이즈 브랜드 매칭</div>
+  <h1>자리는 정했는데,<br><em>브랜드가 고민</em>이세요?</h1>
+  <p class="hero-desc">
+    자리마다 맞는 업종이 다릅니다.<br>
+    상권을 보고, 구조를 보고,<br>
+    그 자리에 맞는 브랜드를 찾아드립니다.
+  </p>
+  <a href="https://open.kakao.com/o/syDEmKni" target="_blank" class="hero-cta">
+    💬 카카오로 물어보기
+  </a>
+  <span class="hero-note">상담 무료 · 평일 09–18시</span>
+</div>
+
+<div class="divider"></div>
+
+<!-- WHY HARD -->
+<div class="why">
+  <h2 class="fade">브랜드 고르기,<br>왜 어려운가요</h2>
+  <p class="why-desc fade">선택지는 많은데 기준이 없으면<br>본사 영업에 끌려다니게 됩니다.</p>
+
+  <div class="why-cards">
+    <div class="wc fade">
+      <div class="wc-icon">📍</div>
+      <div class="wc-title">자리마다 되는 업종이 다릅니다</div>
+      <div class="wc-desc">상권이 허용하는 업종 범위가 있습니다. 이걸 무시하면 아무리 좋은 브랜드도 흔들립니다.</div>
+    </div>
+    <div class="wc fade">
+      <div class="wc-icon">💸</div>
+      <div class="wc-title">인테리어 비용이 브랜드마다 다릅니다</div>
+      <div class="wc-desc">같은 자리도 어떤 브랜드 고르냐에 따라 초기 비용이 크게 달라집니다.</div>
+    </div>
+    <div class="wc fade">
+      <div class="wc-icon">📈</div>
+      <div class="wc-title">뜨는 브랜드인지 지는 브랜드인지</div>
+      <div class="wc-desc">오픈할 때쯤 이미 하락세인 경우가 많습니다. 지금 성장 중인 브랜드를 골라야 합니다.</div>
+    </div>
+    <div class="wc fade">
+      <div class="wc-icon">🤝</div>
+      <div class="wc-title">본사는 가맹 계약이 목표입니다</div>
+      <div class="wc-desc">내 자리에 맞는지 여부와 상관없이 계약을 원합니다. 중립적인 시각이 필요합니다.</div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW -->
+<div class="how">
+  <div class="how-inner">
+    <h2 class="fade">체인지가 하는 일</h2>
+    <p class="how-sub fade">자리 정보만 알려주시면<br>나머지는 저희가 분석합니다</p>
+
+    <div class="steps">
+      <div class="step fade">
+        <div class="step-num">1</div>
+        <div>
+          <div class="step-title">상권 분석</div>
+          <div class="step-desc">그 자리의 유동인구, 주변 업종, 임대 조건을 보고 가능한 업종 범위를 좁힙니다</div>
+        </div>
+      </div>
+      <div class="step-arrow fade">↓</div>
+      <div class="step fade">
+        <div class="step-num">2</div>
+        <div>
+          <div class="step-title">브랜드 매칭</div>
+          <div class="step-desc">상권에 맞고, 지금 성장 중이고, 인테리어 비용이 합리적인 브랜드 2~3개를 추려드립니다</div>
+        </div>
+      </div>
+      <div class="step-arrow fade">↓</div>
+      <div class="step fade">
+        <div class="step-num">3</div>
+        <div>
+          <div class="step-title">비용 시뮬레이션</div>
+          <div class="step-desc">초기 투자금, 예상 월 매출, 손익분기점을 함께 계산해드립니다</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TRUST — 의심 해소 -->
+<div class="trust">
+  <h2 class="fade">궁금하실 것 같아서요</h2>
+
+  <div class="trust-cards">
+    <div class="tc fade">
+      <div class="tc-q">본사한테 수수료 받으면, 그쪽에 유리한 브랜드 추천하는 거 아닌가요?</div>
+      <div class="tc-a">맞는 의심입니다. 저희는 브랜드 수수료 외에 <strong>인테리어 시공 수익</strong>이 있습니다. 브랜드가 잘못 매칭되면 인테리어 계약이 안 됩니다. 제대로 된 매칭이 저희한테도 이득인 구조입니다.</div>
+    </div>
+    <div class="tc fade">
+      <div class="tc-q">상담하면 계속 연락 오는 거 아닌가요?</div>
+      <div class="tc-a">방향이 맞지 않으면 <strong>솔직하게 말씀드립니다.</strong> 억지로 맞추지 않습니다.</div>
+    </div>
+    <div class="tc fade">
+      <div class="tc-q">비용은 얼마나 드나요?</div>
+      <div class="tc-a">상담은 <strong>무료</strong>입니다. 브랜드 가맹 계약이 성사되면 본사로부터 수수료를 받는 구조입니다. 점주분께 별도 비용을 청구하지 않습니다.</div>
+    </div>
+  </div>
+</div>
+
+<!-- FINAL CTA -->
+<div class="final">
+  <h2>자리 정보만<br>알려주시면 됩니다</h2>
+  <p class="final-sub">위치, 평수, 예산만 말씀해주세요.<br>맞는 브랜드 찾아드립니다.</p>
+  <a href="https://open.kakao.com/o/syDEmKni" target="_blank" class="final-cta">
+    💬 카카오로 상담 시작하기
+  </a>
+</div>
+
+<footer>
+  <strong>정총무</strong> · 체인지<br>
+  경기도 남양주시 · 평일 09:00 – 18:00
+</footer>
+
+<a href="https://open.kakao.com/o/syDEmKni" target="_blank" class="float">💬</a>
+
+<script>
+const io=new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting){
+      setTimeout(()=>e.target.classList.add('on'),i*60);
+      io.unobserve(e.target);
+    }
+  });
+},{threshold:0.1});
+document.querySelectorAll('.fade').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
